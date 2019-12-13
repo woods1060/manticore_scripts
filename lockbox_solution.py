@@ -22,7 +22,7 @@ import sys
 from_address = int(sys.argv[1], 16) if len(sys.argv)>1 else "<your address here>"
 si_level_address = int(sys.argv[2], 16) if len(sys.argv)>2 else "<SI ctf level address>"
 sol_file = sys.argv[3] if len(sys.argv)>3 else "/home/auditor/SI_ctf_levels/LockBox.sol"
-gas = 100000
+gas = 4000000
 contract_balance = ???
 
 with open(sol_file, "r") as f:
